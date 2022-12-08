@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Books {% endblock %}
+
+{% block content %}
+    <h3>Books</h3>
+    <h4><a href="{% url 'books:create' %}">Add new book</a></h4>
+    <table>
+         <tr class="filter">
+            <form action="{% url 'books:home' %}">
+                <th><input type="text" name="book_name" placeholder="Search by book name"></th>
+                <th><input type="text" name="book_genre" placeholder="Search by book genre"></th>
+                <th>
+                    <select name="author">
+                        <option value="">Filter by author</option>
+                        {% for author in authors %}
+                        <option value="{{ author.pk }}">{{ author.full_name }}</option>
+                        {% endfor %}
+                    </select>
+                </th>
+                <th><input type="submit"></th>
+            </form>
+        </tr>
+        <tr class="filter">
+            <th>Book name</th>
+            <th>Book Genre</th>
+            <th>Author</th>
+        </tr>
+        {% for book in books %}
+        <tr class="clickable"
+            onclick="window.location.href='{% url 'books:detail' book.pk %}'"
+            style="cursor: pointer"
+        >
+                <td>{{ book.book_name }}</td>
+                <td>{{ book.book_genre }}</td>
+                <td>{{ book.author.full_name }}</td>
+
+        </tr>
+
+        {% endfor %}
+    </table>
+{% endblock %}

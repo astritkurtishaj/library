@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Authors {% endblock %}
+
+{% block content %}
+    <h3>Authors</h3>
+    <h4><a href="{% url 'authors:create' %}">Add new author</a></h4>
+    <table>
+         <tr class="filter">
+            <form action="{% url 'authors:home' %}">
+                <th><input type="text" name="full_name" placeholder="Search by full name"></th>
+                <th><input type="text" name="biography" placeholder="Search by biography"></th>
+                <th><input type="submit"></th>
+            </form>
+        </tr>
+        <tr class="filter">
+            <th>Full name</th>
+            <th>Biography</th>
+        </tr>
+        {% for author in authors %}
+        <tr>
+            <td>{{ author.full_name }}</td>
+            <td>{{ author.biography }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

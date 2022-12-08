@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Book detail {% endblock %}
+
+{% block content %}
+    <h3>Book detail</h3>
+    <label>Book name: {{ book.book_name }}</label><br>
+    <label>Book genre: {{ book.book_genre }}</label><br>
+    <label>Book author: {{ book.author.full_name }}</label><br>
+
+    <table>
+        <tr>
+            <th>Most common words</th>
+            <th>Different words</th>
+            <th>Total words</th>
+        </tr>
+        <tr>
+            <td>
+                {% for word in most_common_words %}
+                    <p>{{ word.1 }} - {{ word.0 }}</p>
+                {% endfor %}
+            </td>
+            <td>
+                {{ different_words }}
+            </td>
+            <td>
+                {{ total_words }}
+            </td>
+        </tr>
+    </table>
+{% endblock %}

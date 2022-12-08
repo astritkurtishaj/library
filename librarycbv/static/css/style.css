@@ -1,0 +1,77 @@
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff6600;
+}
+
+ul.navbar li {
+  float: left;
+}
+
+ul.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+ul.navbar li a:hover {
+  background-color: #111;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ccccff;
+}
+
+input[type='text'] {
+    width: 100%;
+    height: 25px
+}
+
+input[type='date'] {
+    width: 48%;
+    height: 25px
+}
+
+tr.filter th {
+    border-style: none;
+}
+
+input[type='submit'] {
+    height: 25px;
+}
+
+input[type='text'] {
+    width: 100%;
+    height: 25px
+}
+
+select[name='department'] {
+    width: 100%;
+    height: 30px
+}
+
+input.form_input{
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+

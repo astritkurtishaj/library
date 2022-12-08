@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Add book {% endblock %}
+
+{% block content %}
+    <h3>Add book</h3>
+    <form action="{% url 'books:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Book name</label>
+        <input type="text" name="book_name" class="form_input" required>
+        <label>Genre</label>
+        <input type="text" name="book_genre" class="form_input" required>
+        <label>Book file</label>
+        <input type="file" name="book_file" class="form_input" required>
+        <label>Author</label>
+        <select name="author">
+            <option>Select author</option>
+            {% for author in authors %}
+            <option value="{{ author.pk }}">{{ author.full_name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit">
+    </form>
+{% endblock %}
